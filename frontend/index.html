@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local AI Interface</title>
+  <!-- Modular CSS imports -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div>
+        <h1 style="font-size: 1.25rem; font-weight: 700;">Local AI Agent</h1>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Connected via Ollama Local API</p>
+      </div>
+
+      <div class="header-controls">
+        <select id="model-select" class="select-model">
+          <option value="">Loading models...</option>
+        </select>
+
+        <div id="status-badge" class="status-badge">
+          <span class="status-dot"></span>
+          <span class="status-text">Checking...</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="chat-panel">
+      <div id="messages-container" class="messages-container">
+        <!-- Messages will be dynamically rendered here -->
+      </div>
+
+      <div class="input-panel">
+        <!-- Very thin progress bar attached at the top of input bar -->
+        <div id="progress-bar" class="progress-bar-wrapper hidden">
+          <div class="progress-parallelogram"></div>
+        </div>
+
+        <div class="input-bar">
+          <input 
+            id="message-input" 
+            type="text" 
+            class="chat-input" 
+            placeholder="Type a message or prompt..."
+            autocomplete="off"
+          >
+          <button id="send-btn" class="btn">Send</button>
+          <button id="stop-btn" class="btn btn-danger hidden" title="Interrupt generation">
+            <span class="stop-icon">■</span> Stop
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modular JavaScript Entry -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
